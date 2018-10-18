@@ -6,8 +6,8 @@ public class Queue<E> {
 
 	private Object[] datas;
     private int max;
-    private int size;
-	private int index;
+    private volatile int size;
+	private volatile int index;
 	
 	public Queue() {
 		this(DEFAULT_SIZE);
@@ -17,7 +17,7 @@ public class Queue<E> {
 		this.datas = new Object[size];
 		this.max = size;
 		this.size = 0;
-        this.index = -1;
+        this.index = 0;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -25,16 +25,29 @@ public class Queue<E> {
 	  return (E) datas[index];
 	}
 	
-	public void add() {
+	public void add(E e) throws Exception {
+	  if (isFuill()) {
+        throw new Exception();
+      }
 	  
+	  datas[size++] = e;
 	}
 	
-	public void remove() {
+	public void remove() throws Exception {
+	  if (isEmpty()) {
+        throw new Exception();
+      }
 	  
+	  index++;
+	  size--;
 	}
 	
-	public void element() {
+	public E element() {
+	  if (isEmpty()) {
+        return null;
+      }
 	  
+	  return data(index);
 	}
 	
 	public int size() {
@@ -42,19 +55,34 @@ public class Queue<E> {
 	}
 	
 	public boolean hasNext() {
+	  if (size > 0) {
+        return true;
+      }
 	  return false;
 	}
 	
 	public boolean isFuill() {
+	  if (size == max) {
+        return true;
+      }
+	  
 	  return false;
 	}
 	
 	public boolean isEmpty() {
+	  if (size == 0) {
+        return true;
+      }
+	  
 	  return false;
 	}
 	
 	public void dispaly() {
-	  
+	  System.out.println("display: ");
+      for (Object data : datas) {
+        System.out.print(data + " ");
+      }
+      System.out.println("");
 	}
 	
 }
