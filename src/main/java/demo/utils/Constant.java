@@ -10,4 +10,14 @@ public class Constant {
 		
 	}
 	
+	public enum Position {
+	  TOP(0), BOTTOM(1);
+	  
+	  private int value;
+
+      private Position(int value) {
+        this.value = value;
+      }
+	}
+	
 }
