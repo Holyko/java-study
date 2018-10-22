@@ -1,12 +1,7 @@
 package demo.structure.list;
 
-/**
- * 有两种情形：
- * 1. 若只使用after，则是单向链表
- * 2. 若即使用after又使用before，则是双向链表
- *
- * @param <E>
- */
+import net.sf.json.JSONObject;
+
 public class MyLink<E> {
 
   private E data;
@@ -23,6 +18,11 @@ public class MyLink<E> {
   
   public void display() {
     System.out.println(data.toString());
+  }
+  
+  @Override
+  public String toString() {
+    return JSONObject.fromObject(this).toString();
   }
   
 }
