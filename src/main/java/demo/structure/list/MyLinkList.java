@@ -1,6 +1,6 @@
 package demo.structure.list;
 
-import demo.utils.Constant.Position;
+import demo.Constant.Position;
 
 public class MyLinkList<E> {
 

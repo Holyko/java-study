@@ -1,6 +1,6 @@
 package demo.structure.queue;
 
-import demo.utils.StringHelper;
+import utils.StringHelper;
 
 public class Runner {
 

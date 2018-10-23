@@ -1,4 +1,4 @@
-package demo.utils;
+package demo;
 
 public class Constant {
 
@@ -11,13 +11,8 @@ public class Constant {
 	}
 	
 	public enum Position {
-	  TOP(0), BOTTOM(1);
+	  TOP, BOTTOM, RIGHT, LEFT;
 	  
-	  private int value;
-
-      private Position(int value) {
-        this.value = value;
-      }
 	}
 	
 }

@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-import demo.utils.Constant;
+import demo.Constant;
 
 public class Client {
   
