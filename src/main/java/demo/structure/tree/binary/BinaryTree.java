@@ -258,6 +258,7 @@ public class BinaryTree<E> {
     return size;
   }
   
+  @SuppressWarnings("unchecked")
   public void display() {
     Stack<Object> global = new Stack<>();
     global.push(root);
